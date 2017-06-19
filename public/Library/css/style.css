@@ -1,0 +1,156 @@
+/* Content
+-------------------------------------------------------------- */
+.sc_content {
+	/*overflow:hidden;*/
+}
+
+/* Countdown
+-------------------------------------------------------------- */
+
+.sc_countdown {
+	overflow:hidden;
+}
+.sc_countdown .sc_countdown_inner {
+	display:inline-block;
+}
+.sc_countdown .sc_countdown_item {
+	display:block;
+	float:left;
+	text-align:center;
+}
+.sc_countdown .sc_countdown_digits {
+	display:block;
+	overflow:hidden;
+	text-align:center;
+	margin-bottom: 12px;
+}
+.sc_countdown .sc_countdown_digits span {
+	display:inline-block;
+}
+.sc_countdown .sc_countdown_separator {
+	display:block;
+	float:left;
+	margin: 0 8px;
+}
+
+/* Countdown Style 1 */
+.sc_countdown.sc_countdown_style_1 .sc_countdown_digits,
+.sc_countdown.sc_countdown_style_1 .sc_countdown_separator {
+	font-size:2.45em;
+	height: 2.45em;
+	line-height:2.45em;
+	margin-bottom:6px;
+}
+.sc_countdown.sc_countdown_style_1 .sc_countdown_digits {
+	width: 2.45em;
+	border-width: 6px;
+	border-style: solid;
+	-webkit-border-radius: 50%;
+	   -moz-border-radius: 50%;
+			border-radius: 50%;
+}
+.sc_countdown.sc_countdown_style_1 .sc_countdown_label {
+	font-weight:400;
+}
+
+/* Countdown Style 2 */
+.sc_countdown.sc_countdown_style_2 .sc_countdown_digits,
+.sc_countdown.sc_countdown_style_2 .sc_countdown_separator {
+	font-size:3em;
+	font-weight:700;
+	height: 1.3542em;
+	line-height:1.3542em;
+	
+}
+.sc_countdown.sc_countdown_style_2 .sc_countdown_separator {
+	font-weight:300;
+}
+.sc_countdown.sc_countdown_style_2 .sc_countdown_digits span {
+	display:inline-block;
+	text-align:center;
+	width: 1.1458em;
+	color: #ffffff;
+}
+.sc_countdown.sc_countdown_style_2 .sc_countdown_digits span+span {
+	margin-left:2px;
+}
+.sc_countdown.sc_countdown_style_2 .sc_countdown_label {
+	font-weight:400;
+}
+
+/* 7.4 Main content wrapper
+-------------------------------------------------------------- */
+
+/* Post featured block */
+.post_featured {
+	overflow:hidden;
+	margin-bottom: 2.88em;
+	position:relative;
+}
+.post_item_expert .post_featured {
+	width: 49%;
+	display: inline-block;
+}
+.post_item_expert .post_content {
+	width: 49%;
+	display: inline-block;
+	margin-left: 1.5%;
+	vertical-align: top;
+}
+.post_item_expert .post_title {
+	margin-top: -0.2em;
+	line-height: 1.35em;
+	margin-bottom: .34em;
+}
+.woocommerce .post_featured {
+	margin-bottom: 0;
+}
+
+
+
+.post_featured img {
+	width:100%;
+	height:auto;
+}
+
+.post_featured_right > .post_featured {
+	float: right;
+	width: 50%;
+	margin-left: 4.3478%;
+}
+.post_featured_left > .post_featured {
+	float: left;
+	width: 50%;
+	margin-right: 4.3478%;
+}
+
+
+/* Post info block */
+.post_info_bottom {
+	margin-bottom:3em;
+}
+.post_info .post_info_item+.post_info_item:before {
+	display: none;
+	content:"|";
+	vertical-align:top;
+	font-style:normal;
+	margin:0 .3em 0 0;
+	top: -1px;
+	position: relative;
+}
+.post_info .post_info_item.post_info_posted_by:before {
+	display:inline-block;
+}
+.post_info .post_info_counters .post_counters_item {
+	display:inline-block;
+	margin-right:0.75em;
+}
+.post_info .post_info_counters .post_counters_item:before {
+	margin-right:0.5em;
+}
+.post_info.post_info_share_vertical {
+	margin:0;
+}
+.post_info .post_info_counters .post_counters_likes.disabled {
+	color:#e05100;
+}

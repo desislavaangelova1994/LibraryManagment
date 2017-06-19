@@ -1,0 +1,20 @@
+{% include '/Library/common/header.twig' %}
+
+<div class="login-page">
+    <div class="form">
+      <h3 class="text-center">Register</h3>
+          <form method="POST" action="/signup2">
+              <input type="firstname" name="firstname" placeholder="first name"/>
+              <input type="lastname" name="lastname" placeholder="last name"/>
+              <input type="password" name="password" placeholder="password"/>
+              <input type="email" name="email" placeholder="email address"/>
+              <input type="submit" name="send" />
+              <p class="message">Already registered? <a href="/home">Sign In</a></p>
+          </form>
+          {{Error}}
+          {{Success}}
+    </div>
+</div>
+
+
+{% include '/Library/common/footer.twig' %}

@@ -1,0 +1,108 @@
+{% include '/Library/common/header.twig' %}
+
+{% if session.access == true %}
+
+    <div id="add" style=" margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="panel-title">Edit User</div>
+                <div style="float:right; font-size: 85%; position: relative; top:-10px"></div>
+            </div>  
+
+            <div class="panel-body" >
+
+                  
+                    <form  class="form-horizontal" method="post" action="/bookedit1/{{book_id}}" >
+                    
+                        <input type="hidden" name="book_id" value="{{book_id}}" />
+                       
+                        <div id="div_ISBN" class="form-group required">
+                            <label for="ISBN" class="control-label col-md-4  requiredField">ISBN: <span class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 ">
+                                                 
+                            <input  id="ISBN" maxlength="30" name="isbn" value="{{getRow.ISBN}}" style="margin-bottom: 10px" type="text" />   
+                            </div>
+                        </div>
+
+                        <div id="div_category" class="form-group required">
+                            <label for="category" class="control-label col-md-4  requiredField"> Category <span class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 ">
+                                <input  id="category" name="category" style="margin-bottom: 10px" type="text" value="{{getRow.category}}" />
+                            </div>     
+                        </div>
+
+                       <div id="div_format" class="form-group required"> 
+                            <label for="format" class="control-label col-md-4  requiredField">Format<span class="asteriskField"></span> </label> 
+                            <div class="controls col-md-8 ">
+                                <div class="btn-group">       
+                                    <select name="format">
+                                        <option value="paper">Paper</option>
+                                        <option value="pdf">Pdf</option>
+                                    </select>                               
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="div_author" class="form-group required">
+                            <label for="author" class="control-label col-md-4  requiredField">Author<span class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 "> 
+                                <input id="author" name="author" style="margin-bottom: 10px" type="author" value="{{getRow.author}}" />
+                            </div>
+                        </div>
+
+                        <div id="div_title" class="form-group required">
+                            <label for="title" class="control-label col-md-4  requiredField">Title<span class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 "> 
+                                <input id="title" name="title" style="margin-bottom: 10px" type="title" value="{{getRow.title}}" />
+                            </div>
+                        </div>
+
+                        <div id="div_description" class="form-group required">
+                            <label for="format" class="control-label col-md-4  requiredField">Description<span class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 "> 
+                                <input id="description" name="description" style="margin-bottom: 10px" type="description" value="{{getRow.description}}" />
+                            </div>
+                        </div>
+
+                        <div id="div_photo" class="form-group required">
+                            <label for="format" class="control-label col-md-4  requiredField">Photo Link<span class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 "> 
+                                <input id="photo" name="photo" style="margin-bottom: 10px" type="photolink" value="{{getRow.photo}}" />
+                            </div>
+                        </div>
+                        
+                        <div id="div_status" class="form-group required"> 
+                            <label for="status" class="control-label col-md-4  requiredField">Status<span class="asteriskField"></span> </label> 
+                            <div class="controls col-md-8 ">
+                                <div class="btn-group">       
+                                    <select name="status">
+                                        <option value="Available">Available</option>
+                                        <option value="Not Available">Not Available</option>
+                                    </select>                               
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="form-group"> 
+                            <div class="aab controls col-md-4 "></div>
+                            <div class="controls col-md-8 ">
+                                <input class="btn btn-default" type="submit" name="editbook" value="Edit" id="edit" />
+                            </div>
+                        </div>
+
+                        <div class="form-group"> 
+                            <div class="aab controls col-md-4 "></div>
+                        </div> 
+                         
+                    </form>
+                    
+                    <a href="/books/1" class="btn btn-default">Go back</a>
+            </div>
+                
+
+        </div>
+    </div> 
+{% endif %}
+
+{% include '/Library/common/footer.twig' %}

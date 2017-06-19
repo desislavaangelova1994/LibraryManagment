@@ -1,0 +1,58 @@
+{% include '/Library/common/header.twig' %}
+
+
+<div class="row">
+	<div class="container">
+	<br>
+	<p align="center" style="font-size:30px;font-family:'Gloria Hallelujah', cursive;">Issued books</p>
+		<div class="table-responsive">
+		{{sucess}}
+			<table class="table table-hover table-striped">
+				<thead>
+					<tr style="background:#f2d72b;">
+						<th>ID</th>
+						<th>Firstname</th>
+						<th>Lastname</th>
+						<th>Book Title</th>
+						<th>Issued Date</th>
+						<th>Return Date</th>
+						
+					</tr>
+				</thead>
+			{% for row in results %}
+				<tbody>
+					<tr>
+						<td>{{row.id}}</td>
+					    <td >{{row.firstname}}</td>
+					    <td>{{row.lastname}}</td>
+					    <td>{{row.title}}</td>
+					    <td>{{row.issue_date}}</td>
+					    <td style="color:red">{% if row.in_date == null %} - {% else %}{{row.in_date}} {% endif %}</td>
+					</tr>
+				</tbody>
+			{% endfor %}
+			</table>
+
+			{% if lastPage > 1 %}
+
+	    	<div class="pagination">
+	            	{% if currentPage > 1 %}
+	            	<li><a href="{{currentPage-1}}" style="color:black">Previous</a></li>
+	            	{% endif %}
+							
+	            	{% for start in 1..lastPage %}
+						<li {{ currentPage == 1 }}>
+						<a href="{{ start }}" style="color:black">{{ start }}</a></li>
+	            	{% endfor %}
+
+	            	{% if currentPage < lastPage %}
+					<li><a href="{{currentPage+1}}" style="color:black">Next</a></li>
+	            	{% endif %}
+	        </div>
+
+	    	{% endif %}
+
+	    </div>
+</div>
+
+{% include '/Library/common/footer.twig' %}

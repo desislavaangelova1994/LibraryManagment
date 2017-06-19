@@ -1,0 +1,244 @@
+<?php
+
+/* Library/issueform.twig */
+class __TwigTemplate_9f0a2385403b67b4c37c44db9f0a26b870848b90db4b3b991d31bc30346adf99 extends Twig_Template
+{
+    public function __construct(Twig_Environment $env)
+    {
+        parent::__construct($env);
+
+        $this->parent = false;
+
+        $this->blocks = array(
+        );
+    }
+
+    protected function doDisplay(array $context, array $blocks = array())
+    {
+        // line 1
+        $this->loadTemplate("/Library/common/header.twig", "Library/issueform.twig", 1)->display($context);
+        // line 2
+        echo "
+<div class=\"row\">
+    <div class=\"container\">
+        <div class=\"col-md-4 col-md-offset-4\" align=\"center\" style=\"padding-top:10px;\">
+                <ul><img src=\"";
+        // line 6
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["getRow"]) ? $context["getRow"] : null), "photo", array()), "html", null, true);
+        echo "\" class=\"thumbnail\" /></ul>
+        \t    <ul><em>ISBN:";
+        // line 7
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["getRow"]) ? $context["getRow"] : null), "ISBN", array()), "html", null, true);
+        echo "</em> </ul>
+                <ul><h4><em>";
+        // line 8
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["getRow"]) ? $context["getRow"] : null), "title", array()), "html", null, true);
+        echo "</em></h4></ul>
+        \t\t<ul><em>";
+        // line 9
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["getRow"]) ? $context["getRow"] : null), "author", array()), "html", null, true);
+        echo "</em></ul>
+        </div>
+    </div>
+</div>
+
+<div id=\"issuebookbox\"  class=\"mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2\">
+    <div class=\"panel panel-warning\">
+        <div class=\"panel-heading\">
+            <div class=\"panel-title\">Issue Book</div>
+        </div>  
+        <div class=\"panel-body\" >
+            <form  class=\"form-horizontal\" method=\"post\" action=\"/issuedata\">
+
+                <div id=\"div_isbn\" class=\"form-group required\">
+                    <label for=\"isbn\" class=\"control-label col-md-4  requiredField\">Issue Date <span class=\"asteriskField\">*</span> </label>
+                    <div class=\"controls col-md-8 \">
+                        <input name=\"issuedate\" type=\"date\" id=\"issuedate\" />
+                    </div>
+                </div>
+                
+                <input type=\"hidden\" name=\"returndate\" type=\"date\" id=\"returndate\"/>
+                <input type=\"hidden\" name=\"book_id\" value=\"";
+        // line 30
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["getRow"]) ? $context["getRow"] : null), "book_id", array()), "html", null, true);
+        echo "\" />
+                <input type=\"hidden\" name=\"user_id\" value=\"";
+        // line 31
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["session"]) ? $context["session"] : null), "user_id", array()), "html", null, true);
+        echo "\" />
+              
+                <div class=\"form-group\"> 
+                    <div class=\"aab controls col-md-4 \"></div>
+                        <div class=\"controls col-md-8 \">
+                        \t<input class=\"btn btn-default\" type=\"submit\" name=\"submit\" value=\"Issue\" id=\"issue\" />
+                \t\t</div>
+                </div> 
+            </form>
+
+            <form action=\"/userpanel\" >
+                <button type=\"submit\" class=\"btn btn-default\">Go back</button>
+            </form>            
+        </div>
+        <p style=\"font:italic bold;\">* You are suppose to return the book maximum 30 days after the issued date! </p>
+    </div>
+</div>
+
+    <script type=\"text/javascript\">
+   \t\tfunction setInputDate(_id){
+\t    var _dat = document.querySelector(_id);
+\t    var hoy = new Date(),
+\t        d = hoy.getDate(),
+\t        m = hoy.getMonth()+1, 
+\t        y = hoy.getFullYear(),
+\t        data;
+
+\t    if(d < 10){
+\t        d = \"0\"+d;
+\t    };
+\t    if(m < 10){
+\t        m = \"0\"+m;
+\t    };
+
+\t    data = y+\"-\"+m+\"-\"+d;
+\t    console.log(data);
+\t    _dat.value = data;
+\t\t};
+
+        function setReturnDate(_id){
+        var _dat = document.querySelector(_id);
+        var hoy = new Date(),
+            d = hoy.getDate(),
+            m = hoy.getMonth()+2, 
+            y = hoy.getFullYear(),
+            data;
+
+        if(d < 10){
+            d = \"0\"+d;
+        };
+        if(m < 10){
+            m = \"0\"+m;
+        };
+
+        data = y+\"-\"+m+\"-\"+d;
+        console.log(data);
+        _dat.value = data;
+        };
+
+        setReturnDate(\"#returndate\");
+\t\tsetInputDate(\"#issuedate\");
+\t</script>
+
+";
+        // line 94
+        $this->loadTemplate("/Library/common/footer.twig", "Library/issueform.twig", 94)->display($context);
+    }
+
+    public function getTemplateName()
+    {
+        return "Library/issueform.twig";
+    }
+
+    public function isTraitable()
+    {
+        return false;
+    }
+
+    public function getDebugInfo()
+    {
+        return array (  133 => 94,  67 => 31,  63 => 30,  39 => 9,  35 => 8,  31 => 7,  27 => 6,  21 => 2,  19 => 1,);
+    }
+}
+/* {% include '/Library/common/header.twig' %}*/
+/* */
+/* <div class="row">*/
+/*     <div class="container">*/
+/*         <div class="col-md-4 col-md-offset-4" align="center" style="padding-top:10px;">*/
+/*                 <ul><img src="{{getRow.photo}}" class="thumbnail" /></ul>*/
+/*         	    <ul><em>ISBN:{{getRow.ISBN}}</em> </ul>*/
+/*                 <ul><h4><em>{{getRow.title}}</em></h4></ul>*/
+/*         		<ul><em>{{getRow.author}}</em></ul>*/
+/*         </div>*/
+/*     </div>*/
+/* </div>*/
+/* */
+/* <div id="issuebookbox"  class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">*/
+/*     <div class="panel panel-warning">*/
+/*         <div class="panel-heading">*/
+/*             <div class="panel-title">Issue Book</div>*/
+/*         </div>  */
+/*         <div class="panel-body" >*/
+/*             <form  class="form-horizontal" method="post" action="/issuedata">*/
+/* */
+/*                 <div id="div_isbn" class="form-group required">*/
+/*                     <label for="isbn" class="control-label col-md-4  requiredField">Issue Date <span class="asteriskField">*</span> </label>*/
+/*                     <div class="controls col-md-8 ">*/
+/*                         <input name="issuedate" type="date" id="issuedate" />*/
+/*                     </div>*/
+/*                 </div>*/
+/*                 */
+/*                 <input type="hidden" name="returndate" type="date" id="returndate"/>*/
+/*                 <input type="hidden" name="book_id" value="{{getRow.book_id}}" />*/
+/*                 <input type="hidden" name="user_id" value="{{session.user_id}}" />*/
+/*               */
+/*                 <div class="form-group"> */
+/*                     <div class="aab controls col-md-4 "></div>*/
+/*                         <div class="controls col-md-8 ">*/
+/*                         	<input class="btn btn-default" type="submit" name="submit" value="Issue" id="issue" />*/
+/*                 		</div>*/
+/*                 </div> */
+/*             </form>*/
+/* */
+/*             <form action="/userpanel" >*/
+/*                 <button type="submit" class="btn btn-default">Go back</button>*/
+/*             </form>            */
+/*         </div>*/
+/*         <p style="font:italic bold;">* You are suppose to return the book maximum 30 days after the issued date! </p>*/
+/*     </div>*/
+/* </div>*/
+/* */
+/*     <script type="text/javascript">*/
+/*    		function setInputDate(_id){*/
+/* 	    var _dat = document.querySelector(_id);*/
+/* 	    var hoy = new Date(),*/
+/* 	        d = hoy.getDate(),*/
+/* 	        m = hoy.getMonth()+1, */
+/* 	        y = hoy.getFullYear(),*/
+/* 	        data;*/
+/* */
+/* 	    if(d < 10){*/
+/* 	        d = "0"+d;*/
+/* 	    };*/
+/* 	    if(m < 10){*/
+/* 	        m = "0"+m;*/
+/* 	    };*/
+/* */
+/* 	    data = y+"-"+m+"-"+d;*/
+/* 	    console.log(data);*/
+/* 	    _dat.value = data;*/
+/* 		};*/
+/* */
+/*         function setReturnDate(_id){*/
+/*         var _dat = document.querySelector(_id);*/
+/*         var hoy = new Date(),*/
+/*             d = hoy.getDate(),*/
+/*             m = hoy.getMonth()+2, */
+/*             y = hoy.getFullYear(),*/
+/*             data;*/
+/* */
+/*         if(d < 10){*/
+/*             d = "0"+d;*/
+/*         };*/
+/*         if(m < 10){*/
+/*             m = "0"+m;*/
+/*         };*/
+/* */
+/*         data = y+"-"+m+"-"+d;*/
+/*         console.log(data);*/
+/*         _dat.value = data;*/
+/*         };*/
+/* */
+/*         setReturnDate("#returndate");*/
+/* 		setInputDate("#issuedate");*/
+/* 	</script>*/
+/* */
+/* {% include '/Library/common/footer.twig' %}*/

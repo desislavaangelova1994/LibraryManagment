@@ -1,0 +1,51 @@
+{% include '/Library/common/header.twig' %}
+
+
+<div class="row">
+    <div class="container">
+        <div class="table-responsive" style="margin-top:20px;">
+            {{info.book_id}}
+        
+            {% if info == empty %}
+                 <p align="center">You dont have any issued books.</p> 
+            {% else %}
+
+            {% for row in booktitle if row.in_date != true %}
+         
+            <table class="table table-hover table-striped">
+                <thead style="background:#f2d72b;">
+                    <tr> 
+                        <th>Book ID</th>
+                        <th>Book Title</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr>            
+                    <form action="/returned" method="POST">
+                        <td><input type="hidden" name="book_id" value="{{row.book_id}}" />{{row.book_id}}</td>
+                        <td>{{row.title}}</td>
+                        <td><input type="date" value="{{date}}" name="in_date" /></td>
+                        <td>
+                        <input type="hidden" name="user_id" value="{{session.user_id}}" />
+                        <input type="submit" name="submit" value="Return" id="issue" class="btn btn-warning" />
+                        </td>
+                    </form>
+                 </tr>
+                </tbody>
+                {% else %}
+                    <p align="center">You dont have any issued books.</p> 
+                {% endfor %}
+            </table>
+        </div>
+        {% endif %}
+        <div class="container">
+            <form action="/userpanel" >
+                    <button type="submit" class="btn btn-info">Go back</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% include '/Library/common/footer.twig' %}

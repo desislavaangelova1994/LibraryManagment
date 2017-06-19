@@ -1,0 +1,63 @@
+{% include '/Library/common/header.twig' %}
+
+<div class="row">
+	<div class="container">
+	<br>
+	<p align="center" style="font-size:30px;font-family:'Gloria Hallelujah', cursive;">Recommended books</p>
+		<div class="table-responsive">
+		{{sucess}}
+			<table class="table table-hover table-striped">
+				<thead>
+					<tr style="background:#f2d72b;">
+						<th>Firstname</th>
+						<th>Lastname</th>
+						<th>Book's Title</th>
+						<th>Book's Author</th>
+						<th>Book's Photo</th>					
+					</tr>
+				</thead>
+			{% for row in data %}
+				<tbody>
+					<tr>
+						<td style="color:#a59a7a">{{row.firstname}}</td>
+						<td style="color:#a59a7a">{{row.lastname}}</td>
+						<td>{{row.title}}</td>
+					    <td >{{row.author}}</td>
+					    <td><img src="{{row.photo}}" class="thumbnail"/></td>
+			
+					</tr>
+				</tbody>
+			{% endfor %}
+			</table>
+
+					{% if lastPage > 1 %}
+
+	    			{% set extremePagesLimit = 3 %}
+
+	    			{% set nearbyPagesLimit = 2 %}
+
+	    			<div class="pagination">
+	            	{% if currentPage > 1 %}
+		            	<li><a href="{{currentPage-1}}">Previous</a></li>
+		            	{% endif %}
+								
+		            	{% for start in 1..lastPage %}
+							<li {{ currentPage == 1 }}>
+							<a href="{{ start }}">{{ start }}</a></li>
+		            	{% endfor %}
+
+		            	{% if currentPage < lastPage %}
+						<li><a href="{{currentPage+1}}">Next</a></li>
+	            	{% endif %}
+	            	</div>
+	    	{% endif %}
+	    	
+            
+           <a href="/adminpanel" class="btn btn-info">Go back</a>
+            
+        
+	</div>
+</div>
+
+
+{% include '/Library/common/footer.twig' %}

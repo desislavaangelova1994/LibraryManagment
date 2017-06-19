@@ -1,0 +1,46 @@
+{% include '/Library/common/header.twig' %}
+
+{% if session.access == true %}
+
+<div class="row">
+	<div class="container">
+	<br>
+		<div class="table-responsive">
+				<table class="table table-hover table-striped" >
+					<thead>
+						<tr style="background:#f2d72b;">
+							<th>User ID</th>
+							<th>Firstname</th>
+							<th>Lastname</th>
+							<th>Email</th>
+							<th></th>
+						</tr>
+					</thead>
+				{% for row in banned %}
+				<tbody>
+					<tr>
+					    <td>{{row.user_id}}</td>
+					    <td><em>{{row.firstname}}</em></td>
+					    <td><em>{{row.lastname}}</em></td>
+					    <td><em>{{row.email}}</em></td>
+						<td>
+						<form action = "/unban" method="post">
+							<input type="hidden" name="ban" value="ban" />
+							<input type="hidden" name="user_id" value="{{row.user_id}}" />
+							<button type="submit" class="btn btn-danger">UnBan</button>
+						</form>
+						</td>
+					</tr>
+				</tbody>
+				{% endfor %}
+				</table>
+		</div>
+		<a href="/users/1" class="btn btn-default">Go back</a>
+	</div>
+</div>
+
+
+
+{% endif %}
+ 
+{% include '/Library/common/footer.twig' %}

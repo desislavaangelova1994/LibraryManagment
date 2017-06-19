@@ -1,0 +1,88 @@
+{% include '/Library/common/header.twig' %}
+
+{% if session.access == true %}
+
+<div class="row">
+	<div class="container">
+	<br>
+		<div class="table-responsive">
+			{{sucess}}
+			{{success}}
+			{{ban}}
+				<table class="table table-hover table-striped" >
+					<thead>
+						<tr style="background:#f2d72b;">
+							<th>ID</th>
+							<th>Firstname</th>
+							<th>Lastname</th>
+							<th>Email</th>
+							<th>Acess Level</th>
+							<th></th>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+				{% for row in users %}
+				<tbody>
+					<tr>
+					    <td>{{row.user_id}}</td>
+					    <td><em>{{row.firstname}}</em></td>
+					    <td><em>{{row.lastname}}</em></td>
+					    <td><em>{{row.email}}</em></td>
+					    <td>{{row.access_level}}</td>
+					   
+					    <td>
+							<a href="/edit/{{row.user_id}}" class="glyphicon glyphicon-pencil" aria-hidden="true" style="color:#f2d72b;"></a>
+						</td>
+						<td> 
+			  				<a href="/delete/{{row.user_id}}" class="glyphicon glyphicon-trash" onclick="return confirm('Are you sure you want to delete?');" aria-hidden="true" style="color:#f2d72b;"></a>
+			  				<input type="hidden" name="user_id" value="{{user_id}}" />
+
+						</td>
+						<td>
+						<form action = "/ban" method="post">
+							<input type="hidden" name="ban" value="ban" />
+							<input type="hidden" name="user_id" value="{{row.user_id}}" />
+							<button type="submit" class="btn btn-danger">Ban</button>
+						</form>
+						</td>
+					</tr>
+				</tbody>
+				{% endfor %}
+				</table>
+				<a href="/banned" class="btn btn-warning" align="center">View Banned Users</a>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="container">
+
+		{% if lastPage > 1 %}
+
+		{% set extremePagesLimit = 3 %}
+
+		{% set nearbyPagesLimit = 2 %}
+
+		<div class="pagination">
+		    {% if currentPage > 1 %}
+		        <li><a href="{{currentPage-1}}" style="color:black">Previous</a></li>
+		    {% endif %}
+								
+		   {% for start in 1..lastPage %}
+				<li {{ currentPage == 1 }}>
+				<a href="{{ start }}" style="color:black">{{ start }}</a></li>
+		    {% endfor %}
+
+		    {% if currentPage < lastPage %}
+				<li><a href="{{currentPage+1}}" style="color:black">Next</a></li>
+		    {% endif %}
+		</div>
+		{% endif %}
+				
+	</div>
+</div>
+
+
+{% endif %}
+ 
+{% include '/Library/common/footer.twig' %}
